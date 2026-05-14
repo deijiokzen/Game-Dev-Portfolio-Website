@@ -411,12 +411,12 @@
 
 <!-- GAME TABS -->
 <div class="game-tabs">
-  <button class="game-tab-btn active" onclick="switchGame('into-the-mystic', this)">Into the Mystic</button>
-  <button class="game-tab-btn" onclick="switchGame('mistake', this)">Into The Mistake</button>
+  <button class="game-tab-btn active" onclick="switchGame('mistake', this)">Into The Mistake</button>
+  <button class="game-tab-btn" onclick="switchGame('into-the-mystic', this)">Into the Mystic</button>
 </div>
 
 <!-- ══════════ GAME: INTO THE MYSTIC ══════════ -->
-<div id="into-the-mystic" class="game-panel active">
+<div id="into-the-mystic" class="game-panel">
 
   <!-- SUB-NAV -->
   <nav class="sub-nav">
@@ -586,16 +586,16 @@
 
 
 <!-- ══════════ GAME: MISTAKE ══════════ -->
-<div id="mistake" class="game-panel">
+<div id="mistake" class="game-panel active">
 
   <!-- SUB-NAV -->
   <nav class="sub-nav">
-    <a class="active" onclick="switchSection('mistake', 'gimmicks', this)">Gimmicks</a>
-    <a onclick="switchSection('mistake', 'trailer', this)">Trailer</a>
+    <a class="active" onclick="switchSection('mistake', 'trailer', this)">Trailer</a>
+    <a onclick="switchSection('mistake', 'gimmicks', this)">Gimmicks</a>
   </nav>
 
   <!-- ── GIMMICKS ── -->
-  <div id="mistake-gimmicks" class="sub-section active page-section sec-mistake-gimmick">
+  <div id="mistake-gimmicks" class="sub-section page-section sec-mistake-gimmick">
 
     <div class="section-label"><h2>Gimmicks</h2></div>
     <div class="section-intro">
@@ -684,7 +684,7 @@
   </div>
 
   <!-- ── TRAILER ── -->
-  <div id="mistake-trailer" class="sub-section page-section sec-mistake-trailer">
+  <div id="mistake-trailer" class="sub-section active page-section sec-mistake-trailer">
 
     <div class="section-label"><h2>Trailer</h2></div>
     <div class="section-intro">
