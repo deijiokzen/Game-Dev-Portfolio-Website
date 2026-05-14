@@ -154,6 +154,13 @@
   .sec-blue::before { background: rgba(8,18,48,0.70); }
   .sec-teal { background-image: url('Mystic/image045.png'); }
   .sec-teal::before { background: rgba(0,38,38,0.68); }
+
+  /* Mistake game background colours */
+  .sec-mistake-gimmick { background-image: url('Mistake/image01.gif'); }
+  .sec-mistake-gimmick::before { background: rgba(10,4,30,0.82); }
+  .sec-mistake-trailer { background-image: url('Mistake/image08.gif'); }
+  .sec-mistake-trailer::before { background: rgba(80,0,80,0.70); }
+
   .page-section > * { position: relative; z-index: 2; }
 
   /* ══ SECTION LABEL & INTRO ══ */
@@ -230,45 +237,45 @@
   /* ══ GIMMICK ROWS ══ */
   .gimmick-row {
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 24px 48px;
+    gap: 32px;
+    align-items: center;
+    padding: 36px 5%;
     border-bottom: 1px solid rgba(255,255,255,0.07);
-    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
   }
   .gimmick-row:last-child { border-bottom: none; }
 
   .gimmick-media {
     display: flex;
-    gap: 8px;
+    gap: 12px;
+    align-items: center;
     flex-shrink: 0;
-    align-items: flex-start;
   }
 
-  /* Natural aspect ratio: fixed width, height: auto */
   .gimmick-media img {
-    width: 420px;
+    width: 640px;
     height: auto;
     display: block;
     border: 2px solid rgba(255,255,255,0.2);
+    image-rendering: pixelated;
   }
   .gimmick-media img.sm {
-    width: 340px;
+    width: 460px;
     height: auto;
-  }
-  .gimmick-media.full-width {
-    flex-shrink: 0;
+    image-rendering: pixelated;
   }
   .gimmick-media.full-width img {
-    width: 750px;
+    width: 860px;
     height: auto;
-    max-width: 100%;
+    image-rendering: pixelated;
   }
 
   .gimmick-panel {
     background: rgba(4,4,4,0.92);
     border: 1px solid #3a3a3a;
-    padding: 20px 24px;
+    padding: 28px 32px;
     width: 360px;
     flex-shrink: 0;
     align-self: center;
@@ -317,6 +324,56 @@
     height: calc(clamp(180px, 18vw, 300px) * 2 + 10px);
   }
 
+  /* ══ MISTAKE STATUS BADGE ══ */
+  .status-badge {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 8px;
+    position: relative;
+    top: -1px;
+  }
+  .status-badge.working { background: rgba(0,160,60,0.25); border: 1px solid #0a0; color: #4f4; }
+  .status-badge.bugged  { background: rgba(200,100,0,0.25); border: 1px solid #a60; color: #fa0; }
+  .status-badge.hardcoded { background: rgba(120,0,200,0.2); border: 1px solid #70a; color: #c8f; }
+
+  /* ══ MISTAKE TRAILER GRID ══ */
+  .trailer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 0 48px 48px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .trailer-grid-item {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+    border: 2px solid #333;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.8);
+    overflow: hidden;
+  }
+  .trailer-grid-item iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  /* 5th video centred alone on last row */
+  .trailer-grid-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   /* ══ FOOTER ══ */
   footer {
     background: #000;
@@ -336,18 +393,26 @@
 <!-- HEADER -->
 <header>
   <h1>SAUD AHMED ABBASI <span>| PORTFOLIO</span></h1>
-  <div class="unity-badge">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.3 7.4 3.7-7.4 3.7L4.6 8 12 4.3zM3.6 9.5 11 13.2V21L3.6 17.3V9.5zm8.8 3.7 7.4-3.7v7.8L12.4 21V13.2z"/>
-    </svg>
-    unity
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div class="unity-badge">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.3 7.4 3.7-7.4 3.7L4.6 8 12 4.3zM3.6 9.5 11 13.2V21L3.6 17.3V9.5zm8.8 3.7 7.4-3.7v7.8L12.4 21V13.2z"/>
+      </svg>
+      unity
+    </div>
+    <div class="unity-badge" style="background:#478cbf;">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:34px;height:34px;fill:white;flex-shrink:0;">
+        <path d="M12 1.5C6.201 1.5 1.5 6.201 1.5 12S6.201 22.5 12 22.5 22.5 17.799 22.5 12 17.799 1.5 12 1.5zm-.612 3.865l1.554 2.693H9.834l1.554-2.693zM7.07 8.52h9.86l1.307 7.012-3.654-2.109-2.583 4.474-2.583-4.474-3.654 2.109L7.07 8.52zm4.93 2.347a1.133 1.133 0 1 0 0 2.266 1.133 1.133 0 0 0 0-2.266z"/>
+      </svg>
+      godot
+    </div>
   </div>
 </header>
 
 <!-- GAME TABS -->
 <div class="game-tabs">
   <button class="game-tab-btn active" onclick="switchGame('into-the-mystic', this)">Into the Mystic</button>
-  <!-- Future games get added here -->
+  <button class="game-tab-btn" onclick="switchGame('mistake', this)">Into The Mistake</button>
 </div>
 
 <!-- ══════════ GAME: INTO THE MYSTIC ══════════ -->
@@ -519,6 +584,177 @@
 
 </div><!-- /into-the-mystic -->
 
+
+<!-- ══════════ GAME: MISTAKE ══════════ -->
+<div id="mistake" class="game-panel">
+
+  <!-- SUB-NAV -->
+  <nav class="sub-nav">
+    <a class="active" onclick="switchSection('mistake', 'gimmicks', this)">Gimmicks</a>
+    <a onclick="switchSection('mistake', 'trailer', this)">Trailer</a>
+  </nav>
+
+  <!-- ── GIMMICKS ── -->
+  <div id="mistake-gimmicks" class="sub-section active page-section sec-mistake-gimmick">
+
+    <div class="section-label"><h2>Gimmicks</h2></div>
+    <div class="section-intro">
+      A Sokoban-inspired puzzle game built around a dual-mode shooting mechanic. Below is a breakdown of every tech system explored during development.
+    </div>
+
+    <!-- Tech#01 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image01.gif" alt="Sokoban fundamentals">
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#01 — Fundamentals of Sokoban <span class="status-badge working">Working</span></h3>
+        <p>A block must go on a button to open a door; sometimes multiple different buttons open a door. Simply shooting a block allows it to be pushed onto a button.</p>
+      </div>
+    </div>
+
+    <!-- Tech#02 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image02.gif" alt="Pushing and Duplication">
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#02 — Pushing + Duplication <span class="status-badge working">Working</span></h3>
+        <p>Two switchable fire modes: Mode 1 interacts with an object (pushing a block); Mode 2 duplicates it into 4 copies. Re-interacting or re-duplicating a duplicate makes it the new parent and destroys the old copies. A count on each block tracks duplication depth — it rises on duplication and falls on interaction.</p>
+      </div>
+    </div>
+
+    <!-- Tech#03 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image03.gif" alt="Charged Interactions">
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#03 — Charged Interactions <span class="status-badge working">Working</span></h3>
+        <p>Holding the shoot button charges your attack, enabling duplication over longer distances or pushing a block across multiple tiles — while only incrementing or decrementing the count once.</p>
+      </div>
+    </div>
+
+    <!-- Tech#04 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image04.gif" alt="Creating Maps" class="sm">
+        <img src="Mistake/image05.gif" alt="Destroying Maps" class="sm">
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#04 — Creating &amp; Destroying Maps <span class="status-badge bugged">Bugged</span></h3>
+        <p>Certain blocks can either create tilemaps or destroy them, rendering areas impassable or unsolvable. Both creation and destruction variants exist, each altering the layout mid-puzzle.</p>
+      </div>
+    </div>
+
+    <!-- Tech#05 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image06.gif" alt="Black Holes / Grapple Points">
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#05 — Black Holes / Grapple Points <span class="status-badge hardcoded">Hardcoded</span></h3>
+        <p>Shooting a black hole pulls you toward it; stepping on one pushes you away. The opposing forces create positioning puzzles around movement control.</p>
+      </div>
+    </div>
+
+    <!-- Tech#06 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image07.gif" alt="Switchable Objects">
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#06 — Switchable Objects <span class="status-badge hardcoded">Hardcoded</span></h3>
+        <p>The switchable 'eyeball' mechanic is an object that can be swapped with any other object. It can only be moved through duplication, or by moving another object a specific distance and switching it out for the eyeball.</p>
+      </div>
+    </div>
+
+    <!-- Tech#07 -->
+    <div class="gimmick-row">
+      <div class="gimmick-media">
+        <img src="Mistake/image08.gif" alt="Map Movement">
+        <!-- second gif once provided: <img src="Mistake/imageXX.gif" alt="Map Movement 2" class="sm"> -->
+      </div>
+      <div class="gimmick-panel">
+        <h3>Tech#07 — Map Movement <span class="status-badge hardcoded">Hardcoded</span></h3>
+        <p>Interacting with a map mover token slides specific map tiles toward you in that direction. The number of times a token can be moved is limited — only through duplication can that count be incremented.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TRAILER ── -->
+  <div id="mistake-trailer" class="sub-section page-section sec-mistake-trailer">
+
+    <div class="section-label"><h2>Trailer</h2></div>
+    <div class="section-intro">
+      Development footage and tech showcases for Mistake.
+    </div>
+
+    <div class="trailer-grid">
+
+      <div class="trailer-grid-item">
+        <iframe
+          src="https://www.youtube.com/embed/RePaP4PzY-Y"
+          title="Mistake – clip 1"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+
+      <div class="trailer-grid-item">
+        <iframe
+          src="https://www.youtube.com/embed/ltPXqP_QkGo"
+          title="Mistake – clip 2"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+
+      <div class="trailer-grid-item">
+        <iframe
+          src="https://www.youtube.com/embed/NNPXDM5SYZE"
+          title="Mistake – clip 3"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+
+      <div class="trailer-grid-item">
+        <iframe
+          src="https://www.youtube.com/embed/QXIDIyD8KWY"
+          title="Mistake – clip 4"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+
+      <div class="trailer-grid-item">
+        <iframe
+          src="https://www.youtube.com/embed/Tnkqr8XhQvc"
+          title="Mistake – clip 5"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+</div><!-- /mistake -->
+
+
 <!-- FOOTER -->
 <footer>
   Saud Ahmed Abbasi &nbsp;·&nbsp; Portfolio &nbsp;·&nbsp; Unity Engine &nbsp;·&nbsp; Final Year Project
@@ -533,7 +769,6 @@
   }
 
   function switchSection(gamePrefix, sectionId, link) {
-    // Hide all sub-sections in this game
     const panel = document.getElementById(gamePrefix + '-' + sectionId).closest('.game-panel');
     panel.querySelectorAll('.sub-section').forEach(s => s.classList.remove('active'));
     panel.querySelectorAll('.sub-nav a').forEach(a => a.classList.remove('active'));
