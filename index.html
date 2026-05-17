@@ -386,6 +386,157 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
+
+  /* ══ ITM SINGLE TRAILER ══ */
+  .trailer-single-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 48px 64px;
+    gap: 16px;
+  }
+
+  /* ══════════════════════════════
+     RESPONSIVE — TABLET (≤900px)
+  ══════════════════════════════ */
+  @media (max-width: 900px) {
+    header { padding: 14px 24px; }
+    header h1 { font-size: 2rem; }
+    .game-tabs { padding: 0 24px; }
+    .game-tab-btn { padding: 12px 20px; font-size: 1.1rem; }
+    .sub-nav a { padding: 12px 20px; font-size: 1.1rem; }
+    .section-label { margin: 28px 24px 0; }
+    .section-intro { margin: 12px 24px 20px; }
+
+    /* Gimmick rows stack vertically */
+    .gimmick-row {
+      flex-direction: column;
+      gap: 20px;
+      padding: 28px 24px;
+      align-items: stretch;
+    }
+    .gimmick-media { justify-content: center; flex-wrap: wrap; }
+    .gimmick-media img { width: 100% !important; max-width: 560px; }
+    .gimmick-media img.sm { width: 100% !important; max-width: 400px; }
+    .gimmick-media.full-width img { width: 100% !important; }
+    .gimmick-panel { width: 100%; }
+
+    /* Level collage: single column on tablets */
+    .level-collage {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      padding: 10px 24px 24px;
+      gap: 8px;
+    }
+    .level-card { min-height: 240px; }
+    .level-card.c05 { grid-column: 1 / 2; }
+
+    /* Model grid: 2 columns */
+    .model-grid {
+      grid-template-columns: 1fr 1fr;
+      padding: 0 24px 12px;
+    }
+    .model-card.tall { grid-row: 1 / 2; }
+    .model-card.tall img { height: clamp(160px, 22vw, 280px); }
+    .model-card img { height: clamp(140px, 20vw, 240px); }
+
+    /* Trailer grid: single column */
+    .trailer-grid {
+      grid-template-columns: 1fr;
+      padding: 0 24px 40px;
+    }
+    .trailer-grid-item:last-child:nth-child(odd) {
+      grid-column: 1 / 2;
+      max-width: 100%;
+    }
+  }
+
+  /* ══════════════════════════════
+     RESPONSIVE — MOBILE (≤600px)
+  ══════════════════════════════ */
+  @media (max-width: 600px) {
+    /* Header: stack name and badges */
+    header {
+      padding: 12px 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+    header h1 span {
+      display: none; /* hide "| PORTFOLIO" on tiny screens */
+    }
+    .unity-badge {
+      padding: 7px 16px 7px 12px;
+      font-size: 1.1rem;
+    }
+    .unity-badge svg { width: 22px; height: 22px; }
+
+    /* Game tabs: fill width */
+    .game-tabs {
+      padding: 0 12px;
+      gap: 4px;
+    }
+    .game-tab-btn {
+      flex: 1;
+      padding: 10px 8px;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* Sub-nav: fill width evenly */
+    .sub-nav { flex-wrap: wrap; }
+    .sub-nav a {
+      flex: 1;
+      padding: 10px 8px;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-right: none;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    /* Section label + intro */
+    .section-label { margin: 20px 12px 0; }
+    .section-intro {
+      margin: 10px 12px 16px;
+      font-size: 1rem;
+      padding: 10px 14px;
+    }
+
+    /* Gimmick rows */
+    .gimmick-row { padding: 20px 12px; gap: 14px; }
+    .gimmick-panel { padding: 18px 16px; }
+    .gimmick-panel h3 { font-size: 1.15rem; }
+    .gimmick-panel p { font-size: 1rem; }
+
+    /* Level collage */
+    .level-collage { padding: 8px 12px 16px; }
+    .level-card { min-height: 180px; }
+
+    /* Model grid: single column on mobile */
+    .model-grid {
+      grid-template-columns: 1fr;
+      padding: 0 12px 12px;
+    }
+    .model-card.tall { grid-row: auto; }
+    .model-card.tall img,
+    .model-card img { height: clamp(160px, 55vw, 260px); }
+
+    /* Trailer grid */
+    .trailer-grid { padding: 0 12px 32px; }
+    .trailer-grid-item:last-child:nth-child(odd) {
+      max-width: 100%;
+    }
+
+    /* ITM single trailer */
+    .trailer-single-wrap { padding: 16px 12px 32px; }
+
+    footer { font-size: 0.8rem; padding: 14px 12px; letter-spacing: 0.06em; }
+  }
 </style>
 </head>
 <body>
@@ -561,7 +712,7 @@
       Demo overview and pre-beta content for Into the Mystic.
     </div>
 
-    <div style="display: flex; flex-direction: column; align-items: center; padding: 32px 48px 64px; gap: 16px;">
+    <div class="trailer-single-wrap">
       <div style="position: relative; width: 100%; max-width: 1100px; aspect-ratio: 16/9; background: #000; border: 3px solid #333; box-shadow: 0 8px 48px rgba(0,0,0,0.85); overflow: hidden;">
           <iframe
             src="https://www.youtube.com/embed/uwb16Hmk8VU"
