@@ -535,7 +535,8 @@
     /* ITM single trailer */
     .trailer-single-wrap { padding: 16px 12px 32px; }
 
-    footer { font-size: 0.8rem; padding: 14px 12px; letter-spacing: 0.06em; }
+    footer { font-size: 0.75rem; padding: 14px 12px; letter-spacing: 0.06em; }
+    footer a { font-size: 0.75rem !important; }
   }
 </style>
 </head>
@@ -582,7 +583,7 @@
 
     <div class="section-label"><h2>Level Design</h2></div>
     <div class="section-intro">
-      I've put great emphasis on the design of each level of my final year project so that it compliments each gimmick I've implemented.
+      Every level is built around one mechanic. No filler rooms, no padding. If a level doesn't force you to actually understand the gimmick, it gets rebuilt until it does.
     </div>
 
     <div class="level-collage">
@@ -615,7 +616,7 @@
 
     <div class="section-label"><h2>Gimmicks</h2></div>
     <div class="section-intro">
-      There's an innumerable amount of gimmicks I've implemented, here's a look at some of them.
+      Portal 2 was the starting point. The goal was to find mechanics that only work when space stops behaving. Each system here was prototyped, broken, and rebuilt until it produced moments that couldn't happen in a normal game.
     </div>
 
     <!-- Reflection Bullet -->
@@ -626,7 +627,7 @@
       </div>
       <div class="gimmick-panel">
         <h3>Reflection Bullet</h3>
-        <p>The reflection gun allows you to point a guide, on the trajectory of which you can shoot a bullet that has the ability to reflect. Extensive use of Unity Engine's raycasting.</p>
+        <p>Before you shoot, a guide traces the full path the bullet will take. You're planning a shot across two or three surfaces before committing. Built on recursive raycasting; the guide updates as you aim.</p>
       </div>
     </div>
 
@@ -637,7 +638,7 @@
       </div>
       <div class="gimmick-panel">
         <h3>Non-Euclidean Gateways</h3>
-        <p>Non-Euclidean geometry can be used to create game worlds that are significantly different from the real world, and can allow for gameplay elements that would not be possible in a Euclidean game world. For example, a game set in a world with hyperbolic geometry might allow the player to walk on walls or ceilings, or might feature objects that behave in unexpected ways due to the non-Euclidean nature of the game world.</p>
+        <p>Step through a portal facing north and come out facing a direction that shouldn't exist relative to the room you just left. The disorientation is on purpose. A lot of the puzzles only work if the "wrong" exit turns out to be right.</p>
       </div>
     </div>
 
@@ -648,7 +649,7 @@
       </div>
       <div class="gimmick-panel">
         <h3>Perception-Based-Scalable Cube</h3>
-        <p>The cube retains the size you view it in as you pick it up, for example if you stand further from an object, it appears small, picking it up from this distance makes it small in actuality in the game, and vice-versa.</p>
+        <p>Pick up a cube from across the room and it's tiny in your hands. Walk close first and the same cube is big enough to stand on. The puzzles ask you to figure out which size you actually need, then put yourself in the right spot before grabbing it.</p>
       </div>
     </div>
 
@@ -659,7 +660,7 @@
       </div>
       <div class="gimmick-panel">
         <h3>Teleportation Points</h3>
-        <p>Teleportation points allow you to teleport on their location upon being hidden, they retain their size if you draw close or further than them, works on the same logic as the perception-based-scalable cube.</p>
+        <p>Back away from a waypoint to shrink it, then hide it to lock in the destination. Same perception logic as the cube. The catch is you have to commit to where you're going before the waypoint disappears from view.</p>
       </div>
     </div>
 
@@ -670,7 +671,7 @@
       </div>
       <div class="gimmick-panel">
         <h3>Cube Actualizer Wall</h3>
-        <p>The digit on the cube actualizer wall represents the max number of cubes that can form after a bullet collides with the cube actualizer wall and hits something, if max number exceeds the first cube gets destroyed and replaced by the new cube.</p>
+        <p>Shoot a bullet into this wall and a cube spawns where it lands. There's a cap shown on the wall, and once you hit it, the oldest cube disappears. You sometimes have to tear down what you built just to place the one piece you actually need.</p>
       </div>
     </div>
 
@@ -681,7 +682,7 @@
 
     <div class="section-label"><h2>Modelling</h2></div>
     <div class="section-intro">
-      I did some basic modelling for the game, besides the level designs, animation and lighting for the levels.
+      Every asset built from scratch, no asset store. Modelling only what the puzzles actually needed kept things tight: every prop either does something or fits the space. All animation done in-engine.
     </div>
 
     <div class="model-grid">
@@ -709,7 +710,7 @@
 
     <div class="section-label"><h2>Trailer</h2></div>
     <div class="section-intro">
-      Demo overview and pre-beta content for Into the Mystic.
+      Pre-beta gameplay capture. All the mechanics shown are working. The video goes through the full puzzle loop from first contact with a gimmick through to a solved room.
     </div>
 
     <div class="trailer-single-wrap">
@@ -750,7 +751,7 @@
 
     <div class="section-label"><h2>Gimmicks</h2></div>
     <div class="section-intro">
-      A Sokoban-inspired puzzle game built around a dual-mode shooting mechanic. Below is a breakdown of every tech system explored during development.
+      Sokoban, one rule: push blocks onto buttons. Then one mechanic gets added on top, duplication, and the whole game is just figuring out every interesting thing that falls out of that.
     </div>
 
     <!-- Tech#01 -->
@@ -759,8 +760,8 @@
         <img src="Mistake/image01.gif" alt="Sokoban fundamentals">
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#01 — Fundamentals of Sokoban</h3>
-        <p>A block must go on a button to open a door; sometimes multiple different buttons open a door. Simply shooting a block allows it to be pushed onto a button.</p>
+        <h3>Tech#01: Fundamentals of Sokoban</h3>
+        <p>One rule: shoot a block to push it, land it on a button, open the door. No jumping, no sprinting. Everything else in the game is built on top of this without ever changing it.</p>
       </div>
     </div>
 
@@ -770,8 +771,8 @@
         <img src="Mistake/image02.gif" alt="Pushing and Duplication">
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#02 — Pushing + Duplication</h3>
-        <p>Two switchable fire modes: Mode 1 interacts with an object (pushing a block); Mode 2 duplicates it into 4 copies. Re-interacting or re-duplicating a duplicate makes it the new parent and destroys the old copies. A count on each block tracks duplication depth — it rises on duplication and falls on interaction.</p>
+        <h3>Tech#02: Pushing + Duplication</h3>
+        <p>Mode 1 pushes a block. Mode 2 splits it into four copies. Each block tracks a depth count that goes up when you duplicate and down when you interact. Re-duplicating a copy makes it the new parent and kills the old ones. Most puzzles come down to managing this tree without boxing yourself in.</p>
       </div>
     </div>
 
@@ -781,8 +782,8 @@
         <img src="Mistake/image03.gif" alt="Charged Interactions">
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#03 — Charged Interactions</h3>
-        <p>Holding the shoot button charges your attack, enabling duplication over longer distances or pushing a block across multiple tiles — while only incrementing or decrementing the count once.</p>
+        <h3>Tech#03: Charged Interactions</h3>
+        <p>Hold to charge. A charged push slides a block multiple tiles in one go; a charged duplicate copies at range. The depth counter still only moves by one either way, so charging is about efficiency, not a workaround for the core rules.</p>
       </div>
     </div>
 
@@ -793,8 +794,8 @@
         <img src="Mistake/image05.gif" alt="Destroying Maps" class="sm">
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#04 — Creating &amp; Destroying Maps</h3>
-        <p>Certain blocks can either create tilemaps or destroy them, rendering areas impassable or unsolvable. Both creation and destruction variants exist, each altering the layout mid-puzzle.</p>
+        <h3>Tech#04: Creating &amp; Destroying Maps</h3>
+        <p>Some blocks build tilemap terrain on impact. Others destroy it. Misplace one and the level can become unsolvable mid-run. The puzzle isn't just where a block goes, it's figuring out what order to commit to each structural change before you run out of options.</p>
       </div>
     </div>
 
@@ -804,8 +805,8 @@
         <img src="Mistake/image06.gif" alt="Black Holes / Grapple Points">
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#05 — Black Holes / Grapple Points</h3>
-        <p>Shooting a black hole pulls you toward it; stepping on one pushes you away. The opposing forces create positioning puzzles around movement control.</p>
+        <h3>Tech#05: Black Holes / Grapple Points</h3>
+        <p>Shoot a black hole and it pulls you toward it. Step on one and it pushes you away. The two forces interact, so a well-placed shot can redirect your own movement mid-air. Levels with these ask you to plan movement as a chain of forces rather than individual steps.</p>
       </div>
     </div>
 
@@ -815,8 +816,8 @@
         <img src="Mistake/image07.gif" alt="Switchable Objects">
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#06 — Switchable Objects</h3>
-        <p>The switchable 'eyeball' mechanic is an object that can be swapped with any other object. It can only be moved through duplication, or by moving another object a specific distance and switching it out for the eyeball.</p>
+        <h3>Tech#06: Switchable Objects</h3>
+        <p>The eyeball swaps position with whatever you target. You can't push it directly. To move it, you get another block to the right distance and swap them out. It's the one mechanic where the instinct to shoot and push is the wrong answer.</p>
       </div>
     </div>
 
@@ -827,8 +828,8 @@
         <!-- second gif once provided: <img src="Mistake/imageXX.gif" alt="Map Movement 2" class="sm"> -->
       </div>
       <div class="gimmick-panel">
-        <h3>Tech#07 — Map Movement</h3>
-        <p>Interacting with a map mover token slides specific map tiles toward you in that direction. The number of times a token can be moved is limited — only through duplication can that count be incremented.</p>
+        <h3>Tech#07: Map Movement</h3>
+        <p>Interacting with a map mover slides part of the floor toward you, but each token has a limited number of uses. Run out and you're stuck. The only way to recover uses is duplication, which means spending your depth budget on movement rather than block placement.</p>
       </div>
     </div>
 
@@ -839,7 +840,7 @@
 
     <div class="section-label"><h2>Trailer</h2></div>
     <div class="section-intro">
-      Development footage and tech showcases for Mistake.
+      Raw development captures, recorded as each mechanic hit a stable state. No post-processing, no dressed-up levels.
     </div>
 
     <div class="trailer-grid">
@@ -908,7 +909,20 @@
 
 <!-- FOOTER -->
 <footer>
-  Saud Ahmed Abbasi &nbsp;·&nbsp; Portfolio &nbsp;·&nbsp; Unity Engine &nbsp;·&nbsp; Final Year Project
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:24px; margin-bottom:8px;">
+    <a href="mailto:saudahmedabbasi11@outlook.com" style="color:#888; text-decoration:none; font-family:'Share Tech Mono',monospace; font-size:0.9rem; letter-spacing:0.1em; transition:color 0.15s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#888'">saudahmedabbasi11@outlook.com</a>
+    <span style="color:#333;">|</span>
+    <a href="tel:+17059777856" style="color:#888; text-decoration:none; font-family:'Share Tech Mono',monospace; font-size:0.9rem; letter-spacing:0.1em; transition:color 0.15s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#888'">(705) 977-7856</a>
+    <span style="color:#333;">|</span>
+    <a href="https://linkedin.com/in/saud-abbasi-5800861a9" target="_blank" rel="noopener" style="color:#888; text-decoration:none; font-family:'Share Tech Mono',monospace; font-size:0.9rem; letter-spacing:0.1em; transition:color 0.15s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#888'">linkedin ↗</a>
+    <span style="color:#333;">|</span>
+    <a href="https://github.com/deijiokzen" target="_blank" rel="noopener" style="color:#888; text-decoration:none; font-family:'Share Tech Mono',monospace; font-size:0.9rem; letter-spacing:0.1em; transition:color 0.15s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#888'">github ↗</a>
+    <span style="color:#333;">|</span>
+    <a href="https://deijiokzen.github.io/Resume-Website" target="_blank" rel="noopener" style="color:#888; text-decoration:none; font-family:'Share Tech Mono',monospace; font-size:0.9rem; letter-spacing:0.1em; transition:color 0.15s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#888'">resume ↗</a>
+  </div>
+  <div style="color:#333; font-family:'Share Tech Mono',monospace; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">
+    Saud Ahmed Abbasi &nbsp;·&nbsp; Game Development Portfolio
+  </div>
 </footer>
 
 <script>
